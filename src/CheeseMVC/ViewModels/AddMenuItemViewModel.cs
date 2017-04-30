@@ -10,25 +10,24 @@ namespace CheeseMVC.ViewModels
 {
     public class AddMenuItemViewModel
     {
-        
 
-        [Required]
         [Display(Name = "Cheese")]
+        public Menu Menu { get; set; }
+        public List<SelectListItem> Cheeses { get; set; }
+        
+        
         public int CheeseID { get; set; }
         public int MenuID { get; set; }
 
-        public Menu Menu { get; set; }
-        public List<SelectListItem> Cheeses { get; set; }
 
         public AddMenuItemViewModel() { }
 
-        public AddMenuItemViewModel(Menu aMenu, IEnumerable<Cheese> theSelectListCheeses)
+        public AddMenuItemViewModel(Menu aMenu, IEnumerable<Cheese> cheeses)
         {
-            Menu = aMenu;
-
+            
             Cheeses = new List<SelectListItem>();
 
-            foreach (var cheese in theSelectListCheeses)
+            foreach (var cheese in cheeses)
             {
                 Cheeses.Add(new SelectListItem
                 {
@@ -36,7 +35,7 @@ namespace CheeseMVC.ViewModels
                     Text = cheese.Name
                 });
             }
-
+            Menu = aMenu;
         }
 
     }

@@ -10,4 +10,9 @@
     <li>@category.Name</li>
     }
 </ul>
+
+@if (Model.Count==0)
+{
+    <p>No Categories Yet!</p>
+}
 <p><a asp-controller="Category" asp-action="Add">Add Category</a></p>
