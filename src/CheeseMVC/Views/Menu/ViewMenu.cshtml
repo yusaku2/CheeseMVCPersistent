@@ -1,0 +1,19 @@
+﻿@using Microsoft.CodeAnalysis.CSharp.Syntax
+
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+ViewBag.Title="MENU NAME";
+}
+
+@model CheeseMVC.ViewModels.ViewMenuViewModel
+
+<h1>@ViewBag.Title</h1>
+
+@foreach (var menuItem in Model.Items)
+{
+    <ul>@menuItem.Cheese.Name</ul>
+}
+
+<p><a asp-controller="Menu" asp-action="AddItem" asp-route-id="@Model.Menu.ID">Add Item</a></p>
